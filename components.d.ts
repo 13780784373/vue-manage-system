@@ -43,10 +43,10 @@ declare module '@vue/runtime-core' {
     ElTimePicker: typeof import('element-plus/es')['ElTimePicker']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     ElUpload: typeof import('element-plus/es')['ElUpload']
-    Header: typeof import('./src/components/header.vue')['default']
+    Header: typeof import('./src/components/Header.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    Sidebar: typeof import('./src/components/sidebar.vue')['default']
-    Tags: typeof import('./src/components/tags.vue')['default']
+    Sidebar: typeof import('./src/components/Sidebar.vue')['default']
+    Tags: typeof import('./src/components/Tags.vue')['default']
   }
 }
