@@ -33,6 +33,7 @@
 <script setup lang="ts">
 import { useTagsStore } from '../store/tags';
 import { onBeforeRouteUpdate, useRoute, useRouter } from 'vue-router';
+import { Watch } from '@element-plus/icons-vue';
 
 const route = useRoute();
 const router = useRouter();
@@ -69,8 +70,12 @@ const setTags = (route: any) => {
 };
 setTags(route);
 onBeforeRouteUpdate(to => {
-	setTags(to);
+	// setTags(to);
 });
+watch(route, () => {
+	// console.log('watch监听', route);
+	setTags(route);
+}, { deep: true})
 
 // 关闭全部标签
 const closeAll = () => {

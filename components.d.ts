@@ -24,10 +24,11 @@ declare module '@vue/runtime-core' {
     ElTable: typeof import('element-plus/es')['ElTable']
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
-    Header: typeof import('./src/components/header.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    Sidebar: typeof import('./src/components/sidebar.vue')['default']
+    Header: typeof import('./src/components/header.vue')['default']
+    SideBar: typeof import('./src/components/SideBar/index.vue')['default']
+    SidebarItem: typeof import('./src/components/SideBar/SidebarItem.vue')['default']
     Tags: typeof import('./src/components/tags.vue')['default']
   }
 }

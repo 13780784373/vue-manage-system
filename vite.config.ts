@@ -6,15 +6,15 @@ import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 export default defineConfig({
-	//静态资源服务的文件夹
-	publicDir: "public",
-	base: './',
-	//静态资源处理
-	assetsInclude: "",
-	//控制台输出的级别 info 、warn、error、silent
-	logLevel: "info",
-	// 设为false 可以避免 vite 清屏而错过在终端中打印某些关键信息
-	clearScreen: true,
+	// //静态资源服务的文件夹
+	// publicDir: "public",
+	// base: './',
+	// //静态资源处理
+	// assetsInclude: "",
+	// //控制台输出的级别 info 、warn、error、silent
+	// logLevel: "info",
+	// // 设为false 可以避免 vite 清屏而错过在终端中打印某些关键信息
+	// clearScreen: true,
 	resolve: {                                       
 		alias: {
 			'@': resolve(__dirname, 'src')         
@@ -51,7 +51,7 @@ export default defineConfig({
 			}
 		},
 		hmr:{
-			overlay: false // 屏蔽服务器报错
+			// overlay: false // 屏蔽服务器报错
 		}
 	}
 });

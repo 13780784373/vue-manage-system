@@ -1,89 +1,138 @@
 import {createRouter, createWebHashHistory, RouteRecordRaw} from "vue-router";
-import { usePermissStore } from '../store/permiss'
-import Home from "../views/home.vue";
+import { usePermissStore } from '@/store/permiss'
+import Home from "@/views/home.vue";
 
-const routes:RouteRecordRaw[] = [
+export const routes:RouteRecordRaw[] = [
     { path: '/', redirect: '/dashboard' }, 
     {
-        path: "/",
-        name: "Home",
+        path: "/dashboard",
+        name: "dashboard",
+        meta: { icon: "Odometer", permiss: '1' },
         component: Home,
         children: [
             {
-                path: "/dashboard",
+                path: "",
                 name: "dashboard",
-                meta: { title: '系统首页', permiss: '1' },
-                component: () => import ( /* webpackChunkName: "dashboard" */ "../views/dashboard.vue")
-            },
+                meta: { title: '系统首页', icon: "Setting", permiss: '1' },
+                component: () => import ("@/views/dashboard.vue")
+            }
+        ]
+    },
+    {
+        path: "/table",
+        name: "basetable",
+        meta: { permiss: '2' },
+        component: Home,
+        children: [
             {
-                path: "/table",
+                path: "",
                 name: "basetable",
-                meta: { title: '表格', permiss: '2' },
-                component: () => import ( /* webpackChunkName: "table" */ "../views/table.vue")
-            },
+                meta: { title: '表格', icon: "Setting", permiss: '1', },
+                component: () => import ("@/views/table.vue")
+            }
+        ]
+    },
+    {
+        path: "/charts",
+        name: "basecharts",
+        meta: { permiss: '11' },
+        component: Home,
+        children: [
             {
-                path: "/charts",
+                path: "",
                 name: "basecharts",
-                meta: { title: '图表', permiss: '11' },
-                component: () => import ( /* webpackChunkName: "charts" */ "../views/charts.vue")
-            },
+                meta: { title: '图表', icon: "Setting", permiss: '1', },
+                component: () => import ("@/views/charts.vue")
+            }
+        ]
+    },
+    {
+        path: "/permission",
+        name: "permission",
+        meta: {  permiss: '13' },
+        component: Home,
+        children: [
             {
-                path: "/permission",
+                path: "",
                 name: "permission",
-                meta: { title: '权限管理', permiss: '13' },
-                component: () => import ( /* webpackChunkName: "permission" */ "../views/permission.vue")
-            },
+                meta: { title: '权限管理', icon: "Setting", permiss: '1', },
+                component: () => import ("@/views/permission.vue")
+            }
+        ]
+    },
+    {
+        path: "/form",
+        name: "form",
+        meta: { title: '表单相关', icon: "Setting", permiss: '5' },
+        component: Home,
+        children: [
             {
-                path: "/form",
+                path: "",
                 name: "baseform",
-                meta: { title: '表单', permiss: '5' },
-                component: () => import ( /* webpackChunkName: "form" */ "../views/form.vue")
+                meta: { title: '基础表单', permiss: '1', },
+                component: () => import ("@/views/form.vue")
             },
             {
-                path: "/tabs",
-                name: "tabs",
-                meta: { title: 'tab标签', permiss: '3' },
-                component: () => import ( /* webpackChunkName: "tabs" */ "../views/tabs.vue")
-            },
-            {
-                path: "/upload",
+                path: "upload",
                 name: "upload",
-                meta: { title: '上传插件', permiss: '6' },
-                component: () => import ( /* webpackChunkName: "upload" */ "../views/upload.vue")
+                meta: { title: '文件上传', permiss: '6' },
+                component: () => import ("@/views/upload.vue")
             },
+            // {
+            //     path: '/editor',
+            //     name: 'editor',
+            //     meta: { title: '富文本编辑器', permiss: '8' },
+            //     component: () => import ('@/views/editor.vue')
+            // },
+            // {
+            //     path: '/markdown',
+            //     name: 'markdown',
+            //     meta: { title: 'markdown编辑器', permiss: '9' },
+            //     component: () => import ('@/views/markdown.vue')
+            // }
+        ]
+    },
+    {
+        path: "/icon",
+        name: "icon",
+        meta: {permiss: '10' },
+        component: Home,
+        children: [
             {
-                path: "/icon",
+                path: "",
                 name: "icon",
-                meta: { title: '自定义图标', permiss: '10' },
-                component: () => import ( /* webpackChunkName: "icon" */ "../views/icon.vue")
-            }, 
+                meta: { title: 'icon图标', icon: "Setting", permiss: '3', },
+                component: () => import ("@/views/icon.vue")
+            }
+        ]
+    },
+    {
+        path: "/tabs",
+        name: "tabs",
+        meta: { permiss: '3' },
+        component: Home,
+        children: [
             {
-                path: '/editor',
-                name: 'editor',
-                meta: { title: '富文本编辑器', permiss: '8' },
-                component: () => import (/* webpackChunkName: "editor" */ '../views/editor.vue')
-            },
-            {
-                path: '/markdown',
-                name: 'markdown',
-                meta: { title: 'markdown编辑器', permiss: '9' },
-                component: () => import (/* webpackChunkName: "markdown" */ '../views/markdown.vue')
-            },
+                path: "",
+                name: "tabs",
+                meta: { title: 'tab标签', icon: "Setting", permiss: '3', },
+                component: () => import ("@/views/tabs.vue")
+            }
         ]
     },
     {
         path: "/login",
         name: "Login",
-        meta: { title: '登录' },
-        component: () => import ( /* webpackChunkName: "login" */ "../views/login.vue")
+        meta: { title: '登录', hidden: true },
+        component: () => import ("@/views/login.vue")
     },
     {
         path: '/403',
         name: '403',
-        meta: { title: '没有权限' },
-        component: () => import (/* webpackChunkName: "403" */ '../views/403.vue')
-    },
-];
+        meta: { title: '没有权限', hidden: true },
+        component: () => import ('@/views/403.vue')
+    }
+]
 
 const router = createRouter({
     history: createWebHashHistory(),
@@ -91,7 +140,7 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-    document.title = `${to.meta.title} | vue-manage-system`;
+    document.title = `vue-manage-system`;
     const role = localStorage.getItem('ms_username');
     const permiss = usePermissStore();
     if (!role && to.path !== '/login') {
