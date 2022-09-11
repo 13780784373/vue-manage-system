@@ -7,7 +7,7 @@
       >
         <el-menu-item :index="resolvePath(theOnlyOneChild.path)">
           <el-icon v-if="theOnlyOneChild.meta.icon">
-            <component :is="theOnlyOneChild.meta.icon"></component>
+            <component :is="theOnlyOneChild.meta.icon" />
           </el-icon>
           <template #title>{{ theOnlyOneChild.meta.title }}</template>
         </el-menu-item>
@@ -16,10 +16,9 @@
     <el-sub-menu v-else :index="resolvePath(item.path)">
       <template #title>
         <el-icon v-if="item.meta.icon">
-          <component :is="item.meta.icon"></component>
+          <component :is="item.meta.icon" />
         </el-icon>
-        {{item.meta.title}}
-        <!-- <span v-if="item.meta && item.meta.title">{{item.meta.title}}</span> -->
+        <span>{{item.meta.title}}</span>
       </template>
       <template v-if="item.children">
         <sidebar-item
@@ -103,3 +102,14 @@ import { isExternal } from '@/utils/validate'
       return routePath ? `${props.basePath}/${routePath}` : props.basePath
     }
 </script>
+<style>
+    /*隐藏文字*/
+  .el-menu--collapse .el-sub-menu__title span{
+    display: none !important;
+  }
+
+  /*隐藏 > */
+  .el-menu--collapse .el-sub-menu__title .el-submenu__icon-arrow {
+    display: none;
+  }
+</style>

@@ -63,7 +63,7 @@ export const routes:RouteRecordRaw[] = [
     {
         path: "/form",
         name: "form",
-        meta: { title: '表单相关', icon: "Setting", permiss: '5' },
+        meta: { title: '表单', icon: "Setting", permiss: '1' },
         component: Home,
         children: [
             {
@@ -78,18 +78,27 @@ export const routes:RouteRecordRaw[] = [
                 meta: { title: '文件上传', permiss: '6' },
                 component: () => import ("@/views/upload.vue")
             },
-            // {
-            //     path: '/editor',
-            //     name: 'editor',
-            //     meta: { title: '富文本编辑器', permiss: '8' },
-            //     component: () => import ('@/views/editor.vue')
-            // },
-            // {
-            //     path: '/markdown',
-            //     name: 'markdown',
-            //     meta: { title: 'markdown编辑器', permiss: '9' },
-            //     component: () => import ('@/views/markdown.vue')
-            // }
+            {
+                path: "edit",
+                name: "edit",
+                meta: { title: '编辑器', permiss: '6' },
+                component: () => import ("@/views/edit.vue"),
+                children: [
+                    {
+                        path: '',
+                        name: 'editor',
+                        meta: { title: '富文本编辑器', permiss: '8' },
+                        component: () => import ('@/views/editor.vue')
+                    },
+                    {
+                        path: 'markdown',
+                        name: 'markdown',
+                        meta: { title: 'markdown编辑器', permiss: '9' },
+                        component: () => import ('@/views/markdown.vue')
+                    }
+                ]
+            }
+  
         ]
     },
     {
