@@ -33,11 +33,11 @@ import { useRouter } from 'vue-router'
     }
   })
   const router = useRouter()
-    const push = () => {
-      // console.log(props.to)
-      router.push(props.to).catch((err) => {
-        console.log(err)
-      })
-    }
+  const push = () => {
+    // console.log(props.to)
+    router.push(props.to).catch((err) => {
+      console.log(err)
+    })
+  }
 
 </script>

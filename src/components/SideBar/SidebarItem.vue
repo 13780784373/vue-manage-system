@@ -36,8 +36,8 @@
 </template>
 
 <script setup lang="ts">
-import { PropType, defineProps } from 'vue'
-import { RouteRecordRaw } from 'vue-router'
+// import { PropType } from 'vue'
+// import { RouteRecordRaw } from 'vue-router'
 import { isExternal } from '@/utils/validate'
   const props = defineProps({
     item: {
