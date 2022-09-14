@@ -20,6 +20,15 @@ export default defineConfig({
 			'@': resolve(__dirname, 'src')         
 		}                                            
 	},
+	css: {
+    preprocessorOptions: {
+      scss: {
+        // 两种方式都可以
+        additionalData: '@import "@/styles/index.scss";'
+        // additionalData: '@use "@/styles/index.scss" as *;'
+      }
+    }
+  },
 	plugins: [
 		vue(),
 		VueSetupExtend(),
