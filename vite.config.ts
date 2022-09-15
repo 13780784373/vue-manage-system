@@ -7,6 +7,7 @@ import Components from 'unplugin-vue-components/vite';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 import viteCompression from 'vite-plugin-compression'
 import viteImagemin from 'vite-plugin-imagemin'
+import { fa } from 'element-plus/es/locale';
 export default defineConfig({
 	//静态资源服务的文件夹
 	publicDir: "public",
@@ -114,9 +115,10 @@ export default defineConfig({
 		https: false,
 		open: false,// 在开发服务器启动时自动在浏览器中打开应用程序
 		proxy: {
-			'^/api': {
-					target: '',
+			'/api': {
+					target: 'http://172.16.70.239:30000',
 					changeOrigin: true,
+					secure: false,
 					rewrite: (path) => path.replace(/^\/api/, '')
 			}
 		},
