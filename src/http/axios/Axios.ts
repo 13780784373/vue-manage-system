@@ -179,13 +179,13 @@ export class VAxios {
     return this.request({ ...config, method: 'POST' }, options);
   }
 
-  // put<T = any>(config: AxiosRequestConfig, options?: RequestOptions): Promise<T> {
-  //   return this.request({ ...config, method: 'PUT' }, options);
-  // }
+  put<T = any>(config: AxiosRequestConfig, options?: RequestOptions): Promise<T> {
+    return this.request({ ...config, method: 'PUT' }, options);
+  }
 
-  // delete<T = any>(config: AxiosRequestConfig, options?: RequestOptions): Promise<T> {
-  //   return this.request({ ...config, method: 'DELETE' }, options);
-  // }
+  delete<T = any>(config: AxiosRequestConfig, options?: RequestOptions): Promise<T> {
+    return this.request({ ...config, method: 'DELETE' }, options);
+  }
 
   request<T = any>(config: AxiosRequestConfig, options?: RequestOptions): Promise<T> {
     let conf: CreateAxiosOptions = cloneDeep(config);
@@ -202,7 +202,6 @@ export class VAxios {
     conf.requestOptions = opt;
 
     conf = this.supportFormData(conf);
-    console.log(conf, ',,,,,,,')
     return new Promise((resolve, reject) => {
       this.axiosInstance
         .request<any, AxiosResponse<Result>>(conf)

@@ -127,7 +127,6 @@ const transform: AxiosTransform = {
         config.params = undefined;
       }
     }
-    console.log(config, 'config')
     return config;
   },
 
