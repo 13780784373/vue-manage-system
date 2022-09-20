@@ -8,6 +8,9 @@ export const testStore = defineStore('test', {
 	},
   getters: {
     nameCopy: state => state.name
+    // nameCopy():string {
+    //   return this.name
+    // }
   },
   actions: {
     chnageName(name: string) {
