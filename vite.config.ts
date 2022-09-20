@@ -7,7 +7,6 @@ import Components from 'unplugin-vue-components/vite';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 import viteCompression from 'vite-plugin-compression'
 import viteImagemin from 'vite-plugin-imagemin'
-import { fa } from 'element-plus/es/locale';
 export default defineConfig({
 	//静态资源服务的文件夹
 	publicDir: "public",

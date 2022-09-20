@@ -7,7 +7,7 @@
 			<router-view v-slot="{ Component }">
 				<transition name="move" mode="out-in">
 					<keep-alive :include="tags.nameList">
-						<component :is="Component"></component>
+						<component :is="Component" :key="route.name" />
 					</keep-alive>
 				</transition>
 			</router-view>
@@ -23,4 +23,5 @@ import vTags from '@/components/tags.vue';
 
 const sidebar = useSidebarStore();
 const tags = useTagsStore();
+const route = useRoute()
 </script>

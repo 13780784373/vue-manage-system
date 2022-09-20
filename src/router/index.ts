@@ -1,6 +1,6 @@
 import {createRouter, createWebHashHistory, RouteRecordRaw} from "vue-router";
 import { usePermissStore } from '@/store/permiss'
-import Home from "@/views/home.vue";
+const Home = () => import ("@/views/home.vue")
 
 export const routes:RouteRecordRaw[] = [
     { path: '/', redirect: '/dashboard' }, 
@@ -126,6 +126,20 @@ export const routes:RouteRecordRaw[] = [
                 name: "tabs",
                 meta: { title: 'tab标签', icon: "Setting", permiss: '3', },
                 component: () => import ("@/views/tabs.vue")
+            }
+        ]
+    },
+    {
+        path: "/test",
+        name: "test",
+        meta: { permiss: '3' },
+        component: Home,
+        children: [
+            {
+                path: "",
+                name: "test",
+                meta: { title: '测试', icon: "Setting", permiss: '3', },
+                component: () => import ("@/views/test.vue")
             }
         ]
     },
