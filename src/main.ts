@@ -5,7 +5,7 @@ import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import zhCn from 'element-plus/es/locale/lang/zh-cn'
 import App from './App.vue'
 import router from './router'
-import { usePermissStore } from './store/permiss'
+import { usePermissStore } from '@/store/modules/permiss'
 import 'element-plus/dist/index.css'
 import './assets/css/icon.css'
 

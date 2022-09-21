@@ -12,7 +12,7 @@
   </div>
 </template>
 <script setup lang="ts" >
-  import { testStore } from '@/store/test'
+  import { testStore } from '@/store/modules/test'
   import { defineAsyncComponent, markRaw, reactive, ref } from 'vue';
   const CurrentCompoent:any = reactive({
     TabA: markRaw(defineAsyncComponent(() => import('@/components/TabA.vue'))),

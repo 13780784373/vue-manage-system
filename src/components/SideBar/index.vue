@@ -24,7 +24,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import SidebarItem from './SidebarItem.vue'
-import { useSidebarStore } from '@/store/sidebar';
+import { useSidebarStore } from '@/store/modules/sidebar';
 import { useRoute } from 'vue-router';
 import { routes } from "@/router";
 

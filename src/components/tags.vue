@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import { useTagsStore } from '../store/tags';
+import { useTagsStore } from '../store/modules/tags';
 import { onBeforeRouteUpdate, useRoute, useRouter } from 'vue-router';
 import { Watch } from '@element-plus/icons-vue';
 
